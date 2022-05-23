@@ -1,1 +1,29 @@
 include ':app'
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+        maven { url 'https://developer.huawei.com/repo/' }
+
+        maven {
+            url "https://maven.pkg.github.com/zumisha/Data-Collection-Terminal"
+            name = "GitHubPackages"
+            credentials {
+                username = "zumisha"
+                password = "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"
+            }
+        }
+    }
+
+    versionCatalogs {
+        external {
+            from("com.zustematic.versions:external:1.0.0")
+        }
+        libs {
+            from("com.zustematic.versions:libs:1.0.0")
+        }
+    }
+}
